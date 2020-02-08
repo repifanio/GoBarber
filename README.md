@@ -1,34 +1,41 @@
-O GoBarber é uma aplicação que será desenvolvido utilizando a Stack do javaScript. Sendo, back-end em nodeJS, web em React e o mobile em React Native.
+# GoBarber
 
-Esta aplicação está sendo desenvolvida no Bootcamp GoStack da RocketSeat.
+# O que é?
 
-Até o momento foi desenvolvida a inclusão e atualização de usuários juntamente com gerenciamento de logins utilizando middleware com Bearer token.
+GoBarber é uma API que permite realizar a manutenção de:
 
-Techs e libs envolvidas: NodeJS, Sequelize, PostgreSQL, Docker, ORM, Json Web Token dentre outras.</br></br>
-<strong>Rotas</strong>
+- [x]  Usuários
+- [x]  Prestadores de serviço
+- [x]  Clientes
+- [x]  Sessão de usuário
+- [x]  Gerenciamento de serviços
 
-Post => base_url/users
-    * Inclusão de usuários:
-    {
-      "name": "maria",
-      "email": "maria@gmail.com.br",
-      "password": "<senha>",
-      "provider": true
-    }
-    
-Post => base_url/sessions
-    * Abrir sessão e criar token para usuário 
-    {
-      "email": "zidy.elfir@gmail.com.br",
-      "password": "<senha>"
-    }
-  
-Put => base_url/users
-    * Edição de usuário.
-    {
-      "name": "Epifanio",
-      "email": "epifanio@email.com",
-      "oldPassword": "<senha>",
-      "password": "<senha>",
-      "confirmPassword":"<senha>"
-    }
+*(O cheque informa se a funcionalidade foi ou não implementada).*
+
+# Funcionalidades
+
+Cadastrar profissionais, clientes e agendamentos no Postgres. Para todos esses cadastros, foram implementadas funcionalidades de validação de dados, validações de horários, validações de datas, sendo todos esses, somente permitidos se o usuário logado possui autorização para isso através de um bearer token.
+
+# Funcionalidades Extras
+
+Para cada cancelamento de serviço agendado, o sistema envia um e-mail no formato HTML para informar o cancelamento do serviço. Este envio de email, é processado e enviado através de uma fila cadastrada no Redis na qual é executada em segundo plano. Foi também implementado uma funcionalidade na qual permite a coleta de erros na aplicação através do Sentry. Outras duas funcionalidades que merecem serem mencionadas  :) são o upload de imagens e o envio de notificações utilizando o MongoDB.
+
+# Tecnologias/Libs
+
+- Express
+- BcriptyJS
+- Sentry
+- Bee-Queue
+- Date-FNS
+- DotEnv
+- JsonWebToken
+- Mongoose
+- Multer
+- NodeMailer
+- Sequelize
+- Youch
+- Yup
+
+### Obs:
+
+A aplicação está sendo desenvolvida com base nas aulas do BootCamp GoStack da RocketSeat, logo a mesma ainda será muito melhorada.
